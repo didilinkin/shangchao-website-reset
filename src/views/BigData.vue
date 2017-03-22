@@ -1,5 +1,5 @@
 // '大数据平台建设'
 <template lang="pug">
-#Big-Data
+#BigData
     h1 大数据平台建设
 </template>

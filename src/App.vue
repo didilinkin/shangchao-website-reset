@@ -1,13 +1,25 @@
 <template lang="pug">
-#App
+#app
     router-view
+    FooterBox
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
+import FooterBox    from './components/common/FooterBox'
+const components    = { FooterBox }
+
 export default {
-    name: 'App'
+    name: 'app',
+    components: components
 }
 </script>
 
-<style>
+<style lang="sass?indentedSyntax" scoped>
+@import './sass/main'
+@import './sass/vendors/_MuseUI.sass'
+
+#app
+    +bC( $C-base )
 </style>

@@ -1,0 +1,24 @@
+@charset "utf-8"
+// 颜色 + 字体 + 变量 + 继承 + 混合
+@import "./helpers/Color"
+@import "./helpers/Font"
+@import "./helpers/Var"
+@import "./helpers/Extend"
+@import "./helpers/Mixins"
+// 按钮状态 + 统一距离管理( 不同类型边距/填充 )
+@import "./state/BtnState"
+@import "./state/Distance"
+
+// 页面继承
+=moduleBoxStyle
+    +REM-P( $M-padding, $M-margin, $M-padding, $M-margin )
+    @extend %justify
+// 手机号码 - 下的提示 设置隐藏
+.mu-text-field.focus-state
+    color: rgb( 216, 59, 16 ) !important
+// 最大宽度设置混合
+=global-maxWidth
+    @media only screen and ( min-width : 1180px )
+        max-width: 1180px
+        margin: 0 auto
+        +REM-padding-TB( $M-padding*2 )

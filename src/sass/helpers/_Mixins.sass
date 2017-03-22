@@ -1,0 +1,174 @@
+@charset "utf-8"
+// 颜色 + 字体 + 变量 + 继承
+@import "./Color"
+@import "./Font"
+@import "./Var"
+@import "./Extend"
+/* 常用混合 */
+
+// px转rem
+=REM( $attr,$size )
+    #{$attr}: ($size/37.5px)*1rem
+// 跨浏览器设置透明度
+=opacity( $opacity )
+    opacity: $opacity
+    $opacity-ie: $opacity * 100
+    filter: alpha(opacity=$opacity-ie)  // IE8
+=w-h( $width, $height )
+    width: $width
+    height: $height
+=REM-W-H( $width, $height )
+    +REM( width, $width )
+    +REM( height, $height )
+=fS( $fontSize )
+    font-size: $fontSize
+// 字体加粗
+=fW( $fontWeight )
+    font-weight: $fontWeight
+=lH( $lineHeight )
+    line-height: $lineHeight
+// CSS框模型/内边距
+=pB( $paddingBottom )
+    padding-bottom: $paddingBottom
+=pL( $paddingLeft )
+    padding-left: $paddingLeft
+=pR( $paddingRight )
+    padding-right: $paddingRight
+=pT( $paddingTop )
+    padding-top: $paddingTop
+// 4个padding值全转成REM单位
+=REM-P( $top, $right, $bottom, $left )
+    +REM( padding-top, $top )
+    +REM( padding-right, $right )
+    +REM( padding-bottom, $bottom )
+    +REM( padding-left, $left )
+// CSS框模型/外边距
+=mB( $marginBottom )
+    margin-bottom: $marginBottom
+=mL( $marginLeft )
+    margin-left: $marginLeft
+=mR( $marginRight )
+    margin-right: $marginRight
+=mT( $marginTop )
+    margin-top: $marginTop
+// 4个margin值全转成REM单位
+=REM-M( $top, $right, $bottom, $left )
+    +REM( margin-top, $top )
+    +REM( margin-right, $right )
+    +REM( margin-bottom, $bottom )
+    +REM( margin-left, $left )
+// 圆角混合( 接受圆角百分比值 )
+=radius( $size )
+    border-radius: $size
+// 背景色
+=bC( $backgroundColor )
+    background-color: $backgroundColor
+// 图片等比例缩放
+=imgCover( $size )
+    width: $size
+    object-fit: cover
+// 文字上下对齐
+=text-vertical-align( $align )
+    // top - 上对齐
+    vertical-align: $align
+// 便捷混合( 无混合, 高频使用属性 )
+=flexCenter
+    display: flex
+    align-items: center
+    justify-content: center
+=textCenter
+    text-align: center
+=REL
+    position: relative
+=ABS
+    position: absolute
+=block
+    display: block
+=box
+    display: -webkit-box
+    display: -moz-box
+    display: box
+=dNone
+    display: none
+=W100
+    width: 100%
+=dib
+    display: inline-block
+    *display: inline
+    *zoom: 1
+=boxFlex( $flex: 1 )
+    -moz-box-flex: $flex
+    -webkit-box-flex: $flex
+    box-flex: $flex
+// 0.5像素边框线混合( 依赖上方部分混合, 所以此混合位置要在最后 )
+=halfString( $color, $width )
+    +REL
+    &::before
+        content: ''
+        +ABS
+        +w-h( $width, $width )
+        border: 1px solid $color
+        border-bottom: none
+        transform-origin: 0 0
+        transform: scale( .5, .5 )
+        box-sizing: border-box
+// 椭圆按钮( 有阴影 )
+=ellipseBtn( $heightSize )
+	position: relative
+	margin: 10px
+	padding: 0 20px
+    +REM( height, $heightSize )
+    +REM( line-height, $heightSize )
+	text-align: center
+	text-decoration: none
+	text-shadow: 1px 1px 1px rgba(255,255,255, .22)
+	border-radius: 30px
+	box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44)
+	transition: all 0.15s ease
+
+// 省略号, 添加行数控制 参数为(行高,行数)
+=ell-line($lineHeight,$lineNum)
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    +lH($lineHeight)
+    word-break: break-all
+    display: -webkit-box
+    -webkit-line-clamp: $lineNum
+    -webkit-box-orient: vertical
+    overflow: hidden
+
+=rowBorder( $rowNum, $color )
+    @for $i from 1 through $rowNum
+        &:nth-child( #{$i} )
+            border-top: 1px solid $color
+    &:nth-child( #{$rowNum}n+1 )
+        border-left: 1px solid $color
+
+
+// 方便混合( REM转换 margin-top + margin-bottom值 )
+=REM-margin-TB( $margin-size )
+    +REM( margin-top, $margin-size )
+    +REM( margin-bottom, $margin-size )
+// 方便混合( REM转换 margin-left + margin-right值 )
+=REM-margin-LR( $margin-size )
+    +REM( margin-left, $margin-size )
+    +REM( margin-right, $margin-size )
+// 方便混合( REM转换 padding-top + padding-bottom值 )
+=REM-padding-TB( $padding-size )
+    +REM( padding-top, $padding-size )
+    +REM( padding-bottom, $padding-size )
+// 方便混合( REM转换 padding-left + padding-right值 )
+=REM-padding-LR( $padding-size )
+    +REM( padding-left, $padding-size )
+    +REM( padding-right, $padding-size )
+
+/*
+ *      项目专用 Mixin
+ */
+
+// '服务简介', '行业方案'  - 标题用混合 
+=titleStyle( $color )
+    +REM( margin-left, $M-padding )
+    +fS( $F-info )
+    +fW( bold )
+    color: $color

@@ -1,0 +1,34 @@
+/* 最高级别权重样式 - 抵消MuseUI 默认样式 */
+
+/* 手机号码 - 下的提示 设置隐藏 */
+.mu-text-field.focus-state{
+    color: #67b5c2 !important
+}
+.mu-text-field-focus-line{
+    background-color: rgb( 92, 166, 218 ) !important
+}
+
+.warp--pc-header .mu-paper{
+    box-shadow: none;
+    background-color: inherit !important
+}
+.warp--pc-header .mu-bottom-nav .mu-bottom-item-text{
+    font-size: 16px !important;
+    color: #FFF;
+}
+/* 选择导航栏文字后 底部border颜色修改 */
+.warp--pc-header .mu-bottom-item-active .mu-ripple-wrapper {
+    border-bottom: 2px solid #67b5c2;
+}
+/* 选择导航栏文字后 文字颜色颜色修改 */
+.warp--pc-header .mu-bottom-item-active .mu-bottom-item-text{
+    color: #67b5c2 !important;
+    font-weight: bold;
+}
+.moveViewStyle-PC .warp--pc-header span{
+    color: rgb( 51, 51, 51 ) !important;
+}
+/* 控制顶部导航栏高度统一 */
+.mu-bottom-nav{
+    height: 64px !important;
+}
