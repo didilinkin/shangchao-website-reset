@@ -18,7 +18,7 @@ export default {
 
 <style lang="sass?indentedSyntax" scoped>
 @import './sass/main'
-@import './sass/vendors/_MuseUI.sass'
+@import './sass/vendors/MuseUI'
 
 #app
     +bC( $C-base )

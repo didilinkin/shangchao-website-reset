@@ -6,8 +6,8 @@
     .desktop
         // 循环输出 进行渲染
         mu-tabs( v-bind:value="activeTab" @change="handleTabChange" v-bind:style="{ backgroundColor: '#67b5c2' }" )
-            mu-tab( v-for="item in introArr" v-bind:value="item.tabName" v-bind:icon="item.iconName" v-bind:title="item.titleName" v-bind:style="{ color: '#FFF' }" )
-        
+            mu-tab( v-for="item in introArr" v-bind:value="item.tabName" v-bind:icon="item.iconName" v-bind:title="item.titleName" v-bind:key="item.titleName" v-bind:style="{ color: '#FFF' }" )
+
         div( v-for="item in introArr" v-if="activeTab === item.tabName" )
             TableOnly( v-bind:TableArr = "item.itemArr" )
 
@@ -118,22 +118,22 @@ export default {
                         {
                             iconImg     : require('../../assets/img/ico-140-px@3x.png'),
                             row         : "25%",
-                            rowClass    : 'row4',    
+                            rowClass    : 'row4',
                             itemTitle   : '溯源'
                         }, {
                             iconImg     : require('../../assets/img/ico-barcode-140-px@3x.png'),
                             row         : "25%",
-                            rowClass    : 'row4',    
+                            rowClass    : 'row4',
                             itemTitle   : '防伪'
                         }, {
                             iconImg     : require('../../assets/img/ico-card-140-px@3x.png'),
                             row         : "25%",
-                            rowClass    : 'row4',    
+                            rowClass    : 'row4',
                             itemTitle   : '一卡通'
                         }, {
                             iconImg     : require('../../assets/img/ico-card-140-px-copy@3x.png'),
                             row         : "25%",
-                            rowClass    : 'row4',    
+                            rowClass    : 'row4',
                             itemTitle   : '巡检'
                         }
                     ]
@@ -160,7 +160,7 @@ export default {
             +dNone
     .desktop
         @media only screen and ( min-width : 320px )
-            +dNone            
+            +dNone
         @media only screen and ( min-width : 768px )
             +block
     @media only screen and ( min-width : 1180px )

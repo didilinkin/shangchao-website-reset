@@ -1,12 +1,12 @@
 // 'APP应用'
 <template lang="pug">
-#Detail   
+#Application
     h1 APP应用
 </template>
 
 <script>
 export default {
-    name: 'Detail',
+    name: 'Application',
     methods: {},
     data() {
         return {

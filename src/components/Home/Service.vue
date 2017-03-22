@@ -1,7 +1,7 @@
 <template lang="pug">
 #Service
     mu-row( gutter )
-        mu-col( v-for="item in serviceArr" class="serviceBox" width="100" tablet="50" desktop="20" )
+        mu-col( v-for="item in serviceArr" class="serviceBox" width="100" tablet="50" desktop="20" v-bind:key="item.title" )
             div
                 .imgBox
                     img( v-bind:src=" item.img " )
@@ -14,6 +14,7 @@
 
 <script>
 export default {
+    name: 'Service',
     data() {
         return {
             serviceArr: [
@@ -138,7 +139,7 @@ export default {
             height: 360px
         @media only screen and ( min-width : 1024px )
             height: 460px
-            >div 
+            >div
                 +REL
                 +pT( $M-padding*2 )
                 height: 100%

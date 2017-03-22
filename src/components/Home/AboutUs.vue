@@ -11,12 +11,13 @@
 
 <script>
 export default {
+    name: 'AboutUs',
     data() {
         return {
             contentInfo: {
                 title: '青岛上朝信息科技有限公司',
                 textArr:   [
-                    {   
+                    {
                         text: `一家专业从事互联网服务的信息技术公司，公司拥有专业的策划/设计/前后端开发工程师。
                                 核心工程师曾在北上广等大型公司任职。`
                     }, {
@@ -29,7 +30,7 @@ export default {
                         text: `业务范围平台开发，网站定制，手机应用，互联网金融。`
                     }
                 ]
-                
+
             }
         }
     }
