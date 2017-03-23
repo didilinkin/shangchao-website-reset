@@ -9,18 +9,30 @@
                 .string
                 p( v-for="itemText in item.textArr" v-bind:style="{ display: 'block' }" ) {{ itemText.text }}
                 .btnBox
-                    mu-flat-button( label="查看详情" class="demo-flat-button" )
+                    mu-flat-button.demo-flat-button( label="查看详情" @click="toDetailPage( item.url )" )
 </template>
 
 <script>
 export default {
     name: 'Service',
+    methods: {
+        // 目的: 点击'查看详情' -> 跳转到详情页
+        toDetailPage(detailPageUrl) {
+            // 判断跳转是否为CMMI链接
+            if( detailPageUrl != 'CMMI' ) {
+                location.href = '#/' + detailPageUrl
+            } else {
+                location.href = 'http://baike.baidu.com/link?url=fEHKyvDNi26xfAcmLZmshqPUXjv_N100RQnBraaK2ACYZnJ_My57DTN_XHER-3q9dFkSySDl4h97xgipV6hou_'
+            }
+        }
+    },
     data() {
         return {
             serviceArr: [
                 {
                     img     : require('../../assets/img/ico-tool-30-px@3x.png'),
-                    title  : 'app应用',
+                    title   : 'app应用',
+                    url     : 'Application',
                     textArr: [
                         {
                             text: `各大主流平台Android、iOS、`
@@ -32,7 +44,8 @@ export default {
                     ]
                 }, {
                     img     : require('../../assets/img/ico-software-30-px@3x.png'),
-                    title  : '大数据平台建设',
+                    title   : '大数据平台建设',
+                    url     : 'BigData',
                     textArr: [
                         {
                             text: `大型分布式平台建设，`
@@ -44,7 +57,8 @@ export default {
                     ]
                 }, {
                     img     : require('../../assets/img/ico-manager-30-px@3x.png'),
-                    title  : '电商网站',
+                    title   : '电商网站',
+                    url     : 'ECommerce',
                     textArr: [
                         {
                             text: `长期跟踪电商领域发展，`
@@ -56,7 +70,8 @@ export default {
                     ]
                 }, {
                     img     : require('../../assets/img/ico-software-30-px@3x.png'),
-                    title  : '软硬结合系统集成',
+                    title   : '软硬结合系统集成',
+                    url     : 'SystemIntegration',
                     textArr: [
                         {
                             text: `智能硬件、物联网关键技术、`
@@ -68,7 +83,8 @@ export default {
                     ]
                 }, {
                     img     : require('../../assets/img/ico-c-m-m-i-30-px@3x.png'),
-                    title  : 'CMMI认证',
+                    title   : 'CMMI认证',
+                    url     : 'CMMI',
                     textArr: [
                         {
                             text: `CMMI是一套融合多学科的、`
@@ -80,12 +96,6 @@ export default {
                     ]
                 }
             ]
-        }
-    },
-    methods: {
-        // 目的: 跳转到 '提供服务' 详情页
-        toId( idName ) {
-            location.href = '#' + idName
         }
     }
 }

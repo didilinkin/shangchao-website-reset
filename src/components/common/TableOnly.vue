@@ -18,8 +18,7 @@ export default {
 @import '../../sass/main'
 
 #TableOnly
-    +REM( padding, $M-padding )
-    +bC( $F )
+    +REM-padding-TB( $M-padding )
     .TableOnly--itemBox
         +dib
         +REM-padding-TB( $M-contentMargin ) 

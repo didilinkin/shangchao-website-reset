@@ -4,7 +4,7 @@
     TableRender( v-bind:TableRenderArr = "worksArr" )
     // 图片介绍
     mu-row( gutter )
-        mu-col.works--box( v-for="item in worksBoxArr" width="100" tablet="100" desktop="50" )
+        mu-col.works--box( v-for="item in worksBoxArr" v-bind:key="item.itemTitle" width="100" tablet="100" desktop="50" )
             div( v-if="item.imgLeft" v-bind:style="{ backgroundColor: item.itemColor }" )
                 .works--box--imgBox( v-bind:style=" { backgroundImage: 'url(' + item.itemImgSrc + ')', backgroundSize: 'cover' } " )
                 .works--box--textContent

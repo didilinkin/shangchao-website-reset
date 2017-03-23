@@ -25,7 +25,7 @@ export default {
 
 #TableRender
     +REM-padding-TB( $M-padding )
-    +bC( $F )
+    +bC( $C-base )
     // 版块样式
     .TableRender__box
         // 版块标题

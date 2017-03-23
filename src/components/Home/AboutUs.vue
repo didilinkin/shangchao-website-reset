@@ -59,6 +59,7 @@ export default {
                 height: 100%
     .AboutUs--text
         +moduleBoxStyle
+        +pL( 0 )
         h3
             +REM( padding-bottom, $M-contentMargin )
             +REM( font-size, $F-title )

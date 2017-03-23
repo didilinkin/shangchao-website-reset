@@ -1,7 +1,7 @@
 <template lang="pug">
 #JoinUs
     mu-row( gutter )
-        mu-col( class="joinUsBox" v-for="item in joinUsArr" width="100" tablet="100" desktop="50" v-bind:style=" { backgroundColor: item.backgroundColor } " )
+        mu-col( class="joinUsBox" v-for="item in joinUsArr" v-bind:key="item.title" width="100" tablet="100" desktop="50" v-bind:style=" { backgroundColor: item.backgroundColor } " )
             h3( v-bind:style=" { color: item.titleColor } " ) {{ item.title }}
             .info
                 span.pay( v-bind:style=" { color: item.spanColor, borderRightColor: item.titleColor } " ) 薪资:{{ item.pay }}
@@ -70,26 +70,22 @@ export default {
                     ,describe       : [
                         {
                             text    : `1、负责网页端、移动端相关平台产品的交互设计及界面视觉设计`
-                        }
-                        ,{
+                        }, {
                             text    : `2、参与网页端、移动端产品前期界面视觉用户研究及设计流行趋势分析`
-                        }
-                        ,{
+                        }, {
                             text    : `3、制定平台产品的整体视觉风格及相关视觉规范`
-                        }
-                        ,{
+                        }, {
                             text    : `4、具备产品架构的理解、分析能力，能够站在用户角度思考问题，提高产品的可用性，优化设计提升体验`
-                        }
-                        ,{
+                        }, {
                             text    : `5、参与产品项目的设计流程及规范的分析制定`
                         }
-                    ]
-                    ,textColor      : 'rgba( 250, 250, 250, .8 )'
-                    ,backgroundColor: 'rgb( 59,89,152 )'
+                    ],
+                    textColor      : 'rgba( 250, 250, 250, .8 )',
+                    backgroundColor: 'rgb( 59,89,152 )'
                 }
                 ,{
-                    title           : 'PHP高级工程师'
-                    ,titleColor     : 'rgb( 250, 250, 250 )'
+                    title           : 'PHP高级工程师',
+                    titleColor     : 'rgb( 250, 250, 250 )'
                     ,pay            : '面议'
                     ,type           : '全职'
                     ,spanColor      : 'rgb( 255, 255, 255 )'
@@ -97,20 +93,15 @@ export default {
                     ,describe       : [
                         {
                             text    : `1、PHP类项目和网站平台开发项目管理`
-                        }
-                        ,{
+                        }, {
                             text    : `2、负责项目或产品的需求分析、架构设计和技术实施服务`
-                        }
-                        ,{
+                        }, {
                             text    : `3、对产品部门提出的需求进行系统分析和设计`
-                        }
-                        ,{
+                        }, {
                             text    : `4、制定开发规范，参与制定技术标准，编写相应的技术文档`
-                        }
-                        ,{
+                        }, {
                             text    : `5、负责产品研发/实施过程中的模块核心编码、文档编写、性能调优等`
-                        }
-                        ,{
+                        }, {
                             text    : `6、负责整个项目的架构设计，任务分配，项目管理等工作`
                         }
                     ]
@@ -159,6 +150,8 @@ export default {
     @media only screen and ( min-width : 768px )
         +REM-padding-LR( $M-margin )
     @media only screen and ( min-width : 1024px )
+        +pL( 0 )
+        +pR( 0 )
         .joinUsBox
             +REM( height, 400px )
             width: 50%

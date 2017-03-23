@@ -31,13 +31,14 @@
                 mu-col( class="pc--header--box" desktop="60" )
                     mu-paper
                         mu-bottom-nav( v-bind:value="bottomNav" @change="handleChange" )
-                            mu-bottom-nav-item( value="HOME-anchor"        title="HOME"       )
-                            mu-bottom-nav-item( value="aboutUs-anchor"     title="关于我们"    )
-                            mu-bottom-nav-item( value="service-anchor"     title="服务项目"    )
-                            mu-bottom-nav-item( value="works-anchor"       title="成功案例"    )
-                            mu-bottom-nav-item( value="team-anchor"        title="团队介绍"    )
-                            mu-bottom-nav-item( value="joinUs-anchor"      title="招贤纳士"    )
-                            mu-bottom-nav-item( value="contactUs-anchor"   title="联系我们"    )
+                            mu-bottom-nav-item( value="HOME-anchor"         title="HOME"       )
+                            mu-bottom-nav-item( value="aboutUs-anchor"      title="关于我们"    )
+                            mu-bottom-nav-item( value="service-anchor"      title="提供服务"    )
+                            mu-bottom-nav-item( value="intro-anchor"        title="服务简介"    )
+                            mu-bottom-nav-item( value="works-anchor"        title="行业方案"    )
+                            mu-bottom-nav-item( value="team-anchor"         title="团队介绍"    )
+                            mu-bottom-nav-item( value="joinUs-anchor"       title="招贤纳士"    )
+                            mu-bottom-nav-item( value="contactUs-anchor"    title="联系我们"    )
 </template>
 
 <script>
