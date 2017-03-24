@@ -12,6 +12,14 @@ Vue.config.productionTip    = false;
 Vue.config.devtools         = true;
 Vue.config.debug            = true;
 
+// 挂载全局方法
+Vue.prototype.$updateViewUrlState = function( toUrl ) {
+    this.$store.dispatch({
+        type: 'updateViewUrlState',
+        viewUrlState: toUrl
+    });
+};
+
 Vue.use( MuseUI );
 
 /* eslint-disable no-new */

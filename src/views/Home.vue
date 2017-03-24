@@ -47,10 +47,7 @@ const components = { TitleBox, AppBar, Banner, MapView, ContactUs, AboutUs, Serv
 
 export default {
     name: 'Home',
-    methods: {
-        // 测试
-        test() {}
-    },
+    methods: {},
     data() {
         return {
             aboutUsModule: aboutUsObj,
@@ -64,7 +61,7 @@ export default {
         }
     },
     mounted: function() {
-        this.test()
+        this.$updateViewUrlState( 'Home' )   // 更新 路由url状态
     },
     components: components
 }

@@ -12,15 +12,7 @@ import DetailBanner     from '../components/common/DetailBanner'
 const components = { DetailAppBar, DetailBanner }
 export default {
     name: 'BigData',
-    methods: {
-        // 目的: 更新 $store内 页面状态值 -> 更新为'BigDate'
-        updateViewUrlState() {
-            this.$store.dispatch({
-                type: 'updateViewUrlState',
-                viewUrlState: 'BigDate'
-            })
-        }
-    },
+    methods: {},
     data() {
         return {
             // 传递给 Banner组件( 通用 )的数据
@@ -39,11 +31,7 @@ export default {
         }
     },
     mounted: function() {
-        // this.updateViewUrlState()   // 当前面加载完成, 更新 $store Url状态
-        this.$store.dispatch({
-            type: 'updateViewUrlState',
-            viewUrlState: 'BigDate'
-        })
+        this.$updateViewUrlState( 'BigDate' )   // 更新 路由url状态
     },
     components: components
 }

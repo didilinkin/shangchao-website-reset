@@ -26,6 +26,9 @@ export default {
             }
         }
     },
+    mounted: function() {
+        this.$updateViewUrlState( 'SystemIntegration' )   // 更新 路由url状态
+    },
     components: components
 }
 </script>

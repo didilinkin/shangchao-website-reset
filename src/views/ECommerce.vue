@@ -26,6 +26,9 @@ export default {
             }
         }
     },
+    mounted: function() {
+        this.$updateViewUrlState( 'ECommerce' )   // 更新 路由url状态
+    },
     components: components
 }
 </script>

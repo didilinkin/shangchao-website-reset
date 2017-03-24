@@ -24,32 +24,45 @@ export default {
             window.onscroll = () => {
                 let yValue          = window.scrollY,
                     mobileAppbar    = document.querySelector('#mobile--appbar'), 
-                    pcAppBar        = document.querySelector('#pc--header')
+                    pcAppBar        = document.querySelector('#pc--header'),
+                    viewUrlState    = this.$store.state.viewUrlState
+                
+
+                // 目前的问题: 详情页 也需要一个监听滚动事件: 只需要更改导航栏样式即可
+
                 // 当yValue值为0时. 触发一个事件 -> 更改 PC端 AppBar 样式类, 改变样式
                 if( yValue === 0 ) {
-                    this.$data.Home.viewState = ''                                      // 重置 $data内 首页滚动状态
-                    this.changeNavStyle( 1 )                                            // 改变导航按钮样式( 初始状态 - HOME )
-                    mobileAppbar.setAttribute( 'class', 'mu-appbar mu-paper-1' )        // 导航改回透明样式
-                    pcAppBar.setAttribute( 'class', 'pc-header' )                       // 上同
+                    // 判断页面状态: 如果是 'Home' -> 执行 首页导航滚动监听事件
+                    if( viewUrlState === 'Home' ) {
+                        mobileAppbar.setAttribute( 'class', 'mu-appbar mu-paper-1' )        // 导航改回透明样式
+                        pcAppBar.setAttribute( 'class', 'pc-header' )                       // 上同
+                        this.$data.Home.viewState = ''                                      // 重置 $data内 首页滚动状态
+                        this.changeNavStyle( 1 )                                            // 改变导航按钮样式( 初始状态 - HOME )
+                    } // 非首页的情况 -> 无处理
                 } else {
-                    mobileAppbar.setAttribute( 'class', 'mu-appbar mu-paper-1 moveViewStyle' )
-                    pcAppBar.setAttribute( 'class', 'pc-header moveViewStyle-PC' )
-                    // 判断 滚动值的范围 -> 
-                    if( yValue>=1000 && yValue<1700 ) {
-                        this.cacheMethodsState( '关于我们', 2 )
-                    } else if( yValue>=1700 && yValue<2500 ) {
-                        this.cacheMethodsState( '提供服务', 3 )
-                    } else if( yValue>=2500 && yValue<3000 ) {
-                        this.cacheMethodsState( '服务简介', 4 )
-                    } else if( yValue>=3000 && yValue<5300 ) {
-                        this.cacheMethodsState( '行业方案', 5 )
-                    } else if( yValue>=5300 && yValue<6200 ) {
-                        this.cacheMethodsState( '团队介绍', 6 )
-                    } else if( yValue>=6200 && yValue<7700 ) {
-                        this.cacheMethodsState( '招贤纳士', 7 )
-                    } else if( yValue>=7700 ) {
-                        this.cacheMethodsState( '联系我们', 8 )
-                    }
+                    // 判断页面状态: 如果是 'Home' -> 执行 首页导航滚动监听事件
+                    if( viewUrlState === 'Home' ) {
+                        mobileAppbar.setAttribute( 'class', 'mu-appbar mu-paper-1 moveViewStyle' )
+                        pcAppBar.setAttribute( 'class', 'pc-header moveViewStyle-PC' )
+
+                        // 判断 滚动值的范围 -> 
+                        if( yValue>=1000 && yValue<1700 ) {
+                            this.cacheMethodsState( '关于我们', 2 )
+                        } else if( yValue>=1700 && yValue<2500 ) {
+                            this.cacheMethodsState( '提供服务', 3 )
+                        } else if( yValue>=2500 && yValue<3000 ) {
+                            this.cacheMethodsState( '服务简介', 4 )
+                        } else if( yValue>=3000 && yValue<5300 ) {
+                            this.cacheMethodsState( '行业方案', 5 )
+                        } else if( yValue>=5300 && yValue<6200 ) {
+                            this.cacheMethodsState( '团队介绍', 6 )
+                        } else if( yValue>=6200 && yValue<7700 ) {
+                            this.cacheMethodsState( '招贤纳士', 7 )
+                        } else if( yValue>=7700 ) {
+                            this.cacheMethodsState( '联系我们', 8 )
+                        }
+
+                    } // 非首页的情况 -> 无处理
                 }
             }
         },

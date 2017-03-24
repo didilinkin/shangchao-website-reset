@@ -19,12 +19,11 @@ export default {
         // 目的: 点击'查看详情' -> 跳转到详情页
         toDetailPage(detailPageUrl) {
             // 判断跳转是否为CMMI链接
-            // 2016.3.24 暂时将详情页 跳转隐藏 -> 无跳转效果
-            // if( detailPageUrl != 'CMMI' ) {
-            //     location.href = '#/' + detailPageUrl
-            // } else {
-            //     location.href = 'http://baike.baidu.com/link?url=fEHKyvDNi26xfAcmLZmshqPUXjv_N100RQnBraaK2ACYZnJ_My57DTN_XHER-3q9dFkSySDl4h97xgipV6hou_'
-            // }
+            if( detailPageUrl != 'CMMI' ) {
+                location.href = '#/' + detailPageUrl
+            } else {
+                location.href = 'http://baike.baidu.com/link?url=fEHKyvDNi26xfAcmLZmshqPUXjv_N100RQnBraaK2ACYZnJ_My57DTN_XHER-3q9dFkSySDl4h97xgipV6hou_'
+            }
         }
     },
     data() {
