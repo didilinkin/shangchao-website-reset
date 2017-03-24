@@ -32,8 +32,8 @@ export default {
             multiLineInput             : '',
             multiLineInputErrorText    : ''
         }
-    }
-    ,methods: {
+    },
+    methods: {
         handleInputOverflow (isOverflow) {
             this.inputErrorText = isOverflow ? '超过！' : ''
         },
@@ -81,7 +81,7 @@ export default {
                 >i
                     @extend %dib
                     +REM( margin-top, $F-title/4 )
-                    +REM( font-size, $F-info )
+                    +REM( font-size, $F-info*2 )
                     +text-vertical-align( top )
                     color: $C-text
                     @media only screen and ( min-width : 1180px )

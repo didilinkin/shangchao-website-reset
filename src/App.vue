@@ -25,13 +25,12 @@ export default {
                 let yValue          = window.scrollY,
                     mobileAppbar    = document.querySelector('#mobile--appbar'), 
                     pcAppBar        = document.querySelector('#pc--header')
-                
-                // console.log( yValue ) // 判断范围
-
                 // 当yValue值为0时. 触发一个事件 -> 更改 PC端 AppBar 样式类, 改变样式
                 if( yValue === 0 ) {
-                    this.$data.Home.viewState = ''  // 重置首页滚动状态
-                    this.changeNavStyle( 1 )        // 改变导航样式( 初始状态 )
+                    this.$data.Home.viewState = ''                                      // 重置 $data内 首页滚动状态
+                    this.changeNavStyle( 1 )                                            // 改变导航按钮样式( 初始状态 - HOME )
+                    mobileAppbar.setAttribute( 'class', 'mu-appbar mu-paper-1' )        // 导航改回透明样式
+                    pcAppBar.setAttribute( 'class', 'pc-header' )                       // 上同
                 } else {
                     mobileAppbar.setAttribute( 'class', 'mu-appbar mu-paper-1 moveViewStyle' )
                     pcAppBar.setAttribute( 'class', 'pc-header moveViewStyle-PC' )

@@ -22,8 +22,7 @@ export default {
 .title
     +flexCenter
     +textCenter
-    // 方便锚点跳到指定位置, 加高padding-top
-    +REM( padding-top, $M-padding*3 )
+    +REM( padding-top, $M-padding*3 ) // 方便锚点跳到指定位置, 加高padding-top
     +REM( padding-bottom, $M-padding )
     >div
         +W100
