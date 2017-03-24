@@ -1,5 +1,5 @@
 <template lang="pug">
-.header( v-bind:style=" { width: '100%' } " id="HOME-anchor" )
+.header( v-bind:style="{ width: '100%' }" id="HOME-anchor" )
     .mobile-header
         mu-appbar#mobile--appbar( class="" )
             .logoImg( slot="left" )
@@ -51,11 +51,11 @@ export default {
         }
     },
     methods: {
-        toggle ( flag ) {
+        toggle (flag) {
             this.open   = !this.open
             this.docked = !flag
         },
-        toId( idName ) {
+        toId(idName) {
             // 首先将锚点点击事件的name派发到actions事件中
             this.$store.dispatch({
                 type        : 'setAnchorName',
@@ -66,7 +66,7 @@ export default {
             this.bottomNav = val
             this.PCtoId( val )
         },
-        PCtoId( idName ) {
+        PCtoId(idName) {
             // 首先将锚点点击事件的name派发到actions事件中
             this.$store.dispatch({
                 type        : 'setAnchorName',

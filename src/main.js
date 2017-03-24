@@ -12,7 +12,7 @@ Vue.config.productionTip    = false;
 Vue.config.devtools         = true;
 Vue.config.debug            = true;
 
-Vue.use( MuseUI )
+Vue.use( MuseUI );
 
 /* eslint-disable no-new */
 new Vue({
@@ -21,4 +21,4 @@ new Vue({
     store,
     template: '<App/>',
     components: { App }
-})
+});
