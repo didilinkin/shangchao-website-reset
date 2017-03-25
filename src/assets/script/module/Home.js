@@ -124,7 +124,7 @@ const contactUsObj = {
         }
     ],
     subTitle: {
-        text: 'Contact Us',
+        text: 'CONTACT US',
         color: '#555555'
     },
     idName: 'contactUs-anchor'

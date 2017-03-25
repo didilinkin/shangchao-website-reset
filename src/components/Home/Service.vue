@@ -9,7 +9,9 @@
                 .string
                 p( v-for="itemText in item.textArr" v-bind:style="{ display: 'block' }" ) {{ itemText.text }}
                 .btnBox
-                    mu-flat-button.demo-flat-button( label="查看详情" @click="toDetailPage( item.url )" )
+                    router-link( v-bind:to="item.url" )
+                        mu-flat-button.demo-flat-button( label="查看详情" )
+                        // @click="toDetailPage( item.url )"
 </template>
 
 <script>
@@ -136,6 +138,7 @@ export default {
             .demo-flat-button
                 +ellipseBtn( 30px )
                 width: auto
+                margin: 0
                 +REM-margin-TB( $M-margin )
                 box-shadow: none                        // 隐藏不必要的shadow效果
                 border: 1px solid rgba( $C-text, .4 )

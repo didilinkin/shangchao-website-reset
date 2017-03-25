@@ -14,11 +14,14 @@
                 // PC - 右侧
                 mu-col.pc--header--box( desktop="50" v-bind:style="{ textAlign: 'right' }" )
                     mu-paper
-                        mu-bottom-nav( v-bind:value="bottomNav" @change="handleChange" )
-                            mu-bottom-nav-item( value="HOME-anchor" title="返回首页" )
+                        a( v-bind:style="{ textDecoration: 'none' }" @click="callbackHome()" )
+                            mu-bottom-nav( v-bind:value="bottomNav" @change="handleChange" )
+                                mu-bottom-nav-item( value="HOME-anchor" title="返回首页" )
 </template>
 
 <script>
+import VueRouter from 'vue-router'
+
 export default {
     name: 'detailAppBar',
     data () {
@@ -37,6 +40,10 @@ export default {
             this.bottomNav = val
             this.PCtoId(val)
         },
+        callbackHome() {
+            const router = new VueRouter();
+            router.go(-1);
+        }
     }
 }
 </script>
