@@ -24,7 +24,8 @@ export default {
             if( detailPageUrl != 'CMMI' ) {
                 location.href = '#/' + detailPageUrl
             } else {
-                location.href = 'http://baike.baidu.com/link?url=fEHKyvDNi26xfAcmLZmshqPUXjv_N100RQnBraaK2ACYZnJ_My57DTN_XHER-3q9dFkSySDl4h97xgipV6hou_'
+                console.log('1111')
+                href = 'http://baike.baidu.com/link?url=fEHKyvDNi26xfAcmLZmshqPUXjv_N100RQnBraaK2ACYZnJ_My57DTN_XHER-3q9dFkSySDl4h97xgipV6hou_'
             }
         }
     },

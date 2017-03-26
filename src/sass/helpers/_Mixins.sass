@@ -76,6 +76,10 @@
     display: flex
     align-items: center
     justify-content: center
+=flexCenter--inline
+    display: inline-flex
+    align-items: center
+    justify-content: center
 =textCenter
     text-align: center
 =REL
@@ -166,7 +170,7 @@
  *      项目专用 Mixin
  */
 
-// '服务简介', '行业方案'  - 标题用混合 
+// '服务简介', '行业方案'  - 标题用混合
 =titleStyle( $color )
     +REM( margin-left, $M-padding )
     +fS( $F-info )

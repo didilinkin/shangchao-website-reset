@@ -1,7 +1,19 @@
 // 详情类 页面专用 AppBar组件
 <template lang="pug">
 .detailAppBar( v-bind:style="{ width: '100%' }" )
+    // mobile端
     .mobile-header
+        mu-appbar#mobile--appbar( class="" )
+            .logoImg( slot="left" )
+                img( src="../../assets/img/logo-shangchao-dark-44-px@3x.png" )
+            .mu-appbar-title
+                span.mobile--title 青岛上朝信息科技有限公司
+            mu-icon-button( icon='menu' class="mobile--btn" slot="right" @click="toggle( true )" )
+        mu-drawer( right v-bind:open="open" v-bind:docked="docked" @close="toggle()" )
+            mu-list( @itemClick="docked ? '' : toggle()" )
+                mu-list-item( title="HOME" @click="callbackHome()" )
+
+    // PC端
     .pc-header( id="pc--header" )
         .warp--pc-header
             mu-row( gutter )
@@ -54,7 +66,29 @@ export default {
 .detailAppBar
     +ABS
     top: 0
-    .mobile-header  // 移动端 样式
+    // 移动端
+    .mobile-header
+        @media only screen and ( min-width : 320px )
+            width: 100%
+            +REM( height, 60px )
+            // 顶部导航栏( 未滚动 )
+            .mu-appbar
+                position: fixed
+                +bC( inherit )
+                // left下
+                .logoImg
+                        +flexCenter
+                        +REM-W-H( 48px, 48px )
+                        >img
+                            padding: 20% 0
+                            +imgCover( 75% )
+                .mobile--title
+                    font-size: $F-text
+                .right
+        @media only screen and ( min-width : 1024px )
+            display: none
+
+    // PC端
     .pc-header      // PC端 样式
         @media only screen and ( min-width : 320px )
             display: none                               // 移动端 - 隐藏

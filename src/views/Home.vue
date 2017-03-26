@@ -14,11 +14,11 @@
         Intro
     .moduleBox( v-bind:style="{ backgroundColor: worksModule.backgroundColor }" )
         TitleBox( v-bind:titleInfo="worksModule" )
-        Works 
+        Works
     .moduleBox( v-bind:style="{ backgroundColor: teamModule.backgroundColor }" )
         TitleBox( v-bind:titleInfo="teamModule" )
         Team
-    .moduleBox( v-bind:style="{  backgroundImage: 'url( ' + JoinUsBgImg + ' )', backgroundSize: 'cover'  }" )
+    .moduleBox( v-bind:style="{  backgroundImage: 'url( ' + joinUsModule.bgImg + ' )', backgroundSize: 'cover'  }" )
         TitleBox( v-bind:titleInfo="joinUsModule" )
         JoinUs
     .moduleBox( v-bind:style="{ backgroundColor: teamModule.backgroundColor }" )
@@ -56,8 +56,7 @@ export default {
             worksModule: worksObj,
             teamModule: teamObj ,
             joinUsModule: joinUsObj,
-            contactUsModule: contactUsObj,
-            JoinUsBgImg: require('../assets/img/bg.png')
+            contactUsModule: contactUsObj
         }
     },
     mounted: function() {

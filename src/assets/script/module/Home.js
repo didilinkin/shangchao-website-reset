@@ -108,7 +108,8 @@ const joinUsObj = {
         text: 'JOIN US',
         color: '#FFF'
     },
-    idName: 'joinUs-anchor'
+    idName: 'joinUs-anchor',
+    bgImg: require('../../img/bg.png')
 };
 
 const contactUsObj = {
