@@ -17,7 +17,7 @@
                 .moduleBox__info
                     h3 {{ item.title }}
                     p {{ item.subTitle }}
-
+    // 开发技术
     .moduleBox( v-bind:style="{ backgroundColor: fourPlatformModule.backgroundColor }" )
         TitleBox( v-bind:titleInfo="fourPlatformModule" )
         mu-row.moduleBox__content( gutter )
@@ -31,12 +31,33 @@
                     img( v-bind:src="item.iconImg" v-bind:style="{ width: '30%' }" )
                 .moduleBox__info
                     h3 {{ item.title }}
-
+    // 六大服务优势
     .moduleBox( v-bind:style="{ backgroundColor: sixAdvantageModule.backgroundColor }" )
         TitleBox( v-bind:titleInfo="sixAdvantageModule" )
-
+        mu-row.moduleBox__content( gutter class="mediaQuery--sixAdvantageModule" )
+            mu-col(
+                v-for="item in sixAdvantageModule.contentInfo" v-bind:key="item.title"
+                class="sixAdvantageModule"
+                width="100" tablet="50" desktop="33"
+            )
+                .moduleBox__iconImg
+                    img( v-bind:src="item.iconImg" )
+                .moduleBox__info
+                    h3 {{ item.title }}
+                    p {{ item.subTitle }}
+    // 二十大行业解决方案
     .moduleBox( v-bind:style="{ backgroundColor: twentySolutionModule.backgroundColor }" )
         TitleBox( v-bind:titleInfo="twentySolutionModule" )
+        mu-row.moduleBox__content( gutter class="mediaQuery--twentySolutionModule" )
+            mu-col(
+                v-for="item in twentySolutionModule.contentInfo" v-bind:key="item.title"
+                class="twentySolutionModule"
+                width="33" tablet="33" desktop="20"
+            )
+                .moduleBox__iconImg
+                    img( v-bind:src="item.iconImg" v-bind:style="{ width: '30%' }" )
+                .moduleBox__info
+                    h3 {{ item.title }}
 
 </template>
 
@@ -98,6 +119,12 @@ export default {
         .fourPlatformModule
             h3
                 color: $F
+        .sixAdvantageModule
+            h3
+                +fontStyle( $F-info, $F-title*1.5, $C-title )
+                +fW( bold )
+            p
+                +fontStyle( $F-text, $F-text*1.5, $C-text )
 
 // 媒体查询 - 两大平台
 .mediaQuery--twoPlatformModule
@@ -155,4 +182,56 @@ export default {
         width: 25% !important
         h3
             +REM( font-size, $F-title )
+
+// 媒体查询 - 六大服务优势
+.mediaQuery--sixAdvantageModule
+    @media only screen and ( min-width : 320px )
+        +REM-margin-LR( $M-contentMargin )
+        +REM( padding, $M-contentMargin )
+        .sixAdvantageModule
+            .moduleBox__iconImg >img
+                +imgCover( 10% )
+    @media only screen and ( min-width : 640px )
+        .sixAdvantageModule
+            +rowBorderAll( 6, 2, 1px, solid, $C-Intro-border )
+            +REM-P( $M-contentMargin )
+            width: 50% !important
+            +REM( height, 120px )
+            .moduleBox__iconImg >img
+                +imgCover( 15% )
+            .moduleBox__info >h3
+                +fontStyle( $F-info, $F-info*2, $C-title )
+            .moduleBox__info >p
+                +fontStyle( $F-text, $F-text*2, $C-title )
+    @media only screen and ( min-width : 1024px )
+        padding: 0 
+// 媒体查询 - 二十大行业解决方案( 唯一一个与 .moduleBox__content 同级的类 )
+.mediaQuery--twentySolutionModule
+    @media only screen and ( min-width : 320px )
+        padding:
+            left: $M-contentMargin !important
+            right: $M-contentMargin !important
+        .twentySolutionModule
+            +REM-padding-TB( $M-contentMargin ) 
+            width: 25%
+            +textCenter
+            // 边框样式
+            +rowBorderAll( 20, 4, 1px, solid, $C-Intro-border )
+            h3
+                +fontStyle( $F-text, $F-info, $C-title )
+    @media only screen and ( min-width : 414px )
+        .twentySolutionModule
+            h3 
+                +fontStyle( $F-text*1.2, $F-info*1.2, $C-title )
+    @media only screen and ( min-width : 768px )
+        .twentySolutionModule
+            h3 
+                +fontStyle( $F-title, $F-title*1.5, $C-title )
+    @media only screen and ( min-width : 1024px )
+        padding: 0 !important
+        .twentySolutionModule
+            width: 20%
+            +REM( height, 100px )
+            +rowBorderAll( 20, 5, 1px, solid, $C-Intro-border )
+
 </style>

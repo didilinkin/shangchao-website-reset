@@ -27,6 +27,10 @@
     font-weight: $fontWeight
 =lH( $lineHeight )
     line-height: $lineHeight
+=fontStyle( $fontSize, $lineHeight, $fontColor )
+    font-size: $fontSize
+    line-height: $lineHeight
+    color: $fontColor
 // CSS框模型/内边距
 =pB( $paddingBottom )
     padding-bottom: $paddingBottom
@@ -37,7 +41,7 @@
 =pT( $paddingTop )
     padding-top: $paddingTop
 // 4个padding值全转成REM单位
-=REM-P( $top, $right, $bottom, $left )
+=REM-P( $top, $right:$top, $bottom:$top, $left:$top )
     +REM( padding-top, $top )
     +REM( padding-right, $right )
     +REM( padding-bottom, $bottom )
@@ -147,6 +151,40 @@
             border-top: 1px solid $color
     &:nth-child( #{$rowNum}n+1 )
         border-left: 1px solid $color
+    
+// 边框样式计算样式( 参数： 全部数量， 列数， 边框 宽度 + 样式 + 颜色 )
+=rowBorderAll( $allNum, $rowNum, $borderWidth, $borderStyle, $borderColor )
+    $showBorder: #{$borderWidth} #{$borderStyle} #{$borderColor}
+
+    border:
+        top: none
+        right: $showBorder
+        bottom: $showBorder
+        left: none
+    &:first-child
+        border-left: $showBorder
+    @for $i from 1 through $rowNum
+        &:nth-child( #{$i} )
+            border-top: $showBorder
+    &:nth-child( #{$rowNum}n+1 )
+        border-left: $showBorder
+
+// 新思路 - 未实践成功
+=rowTestA( $width, $border )
+    display: flex
+    flex-flow: row wrap
+    align-content: flex-start
+    border: 
+        top:  1px solid $border
+        left: 1px solid $border
+    &>a, &>.flex-item
+        flex: 0 0 $width
+        border:
+            right: 1px solid $border
+            bottom:  1px solid $border
+
+    
+
 
 
 // 方便混合( REM转换 margin-top + margin-bottom值 )

@@ -9,26 +9,17 @@
                 .string
                 p( v-for="itemText in item.textArr" v-bind:style="{ display: 'block' }" ) {{ itemText.text }}
                 .btnBox
-                    router-link( v-bind:to="item.url" )
+                    // 除 'CMMI' 的添加router链接
+                    router-link( v-if=" item.url != 'CMMI' " v-bind:to="item.url" )
                         mu-flat-button.demo-flat-button( label="查看详情" )
-                        // @click="toDetailPage( item.url )"
+                    a( v-else href="http://baike.baidu.com/link?url=fEHKyvDNi26xfAcmLZmshqPUXjv_N100RQnBraaK2ACYZnJ_My57DTN_XHER-3q9dFkSySDl4h97xgipV6hou_" )
+                        mu-flat-button.demo-flat-button( label="查看详情" )
+                    
 </template>
 
 <script>
 export default {
     name: 'Service',
-    methods: {
-        // 目的: 点击'查看详情' -> 跳转到详情页
-        toDetailPage(detailPageUrl) {
-            // 判断跳转是否为CMMI链接
-            if( detailPageUrl != 'CMMI' ) {
-                location.href = '#/' + detailPageUrl
-            } else {
-                console.log('1111')
-                href = 'http://baike.baidu.com/link?url=fEHKyvDNi26xfAcmLZmshqPUXjv_N100RQnBraaK2ACYZnJ_My57DTN_XHER-3q9dFkSySDl4h97xgipV6hou_'
-            }
-        }
-    },
     data() {
         return {
             serviceArr: [
